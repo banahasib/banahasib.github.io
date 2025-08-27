@@ -1,6 +1,4 @@
-/* =========================
-   style.css
-========================== */
+
 
 * {
   box-sizing: border-box;
@@ -79,12 +77,14 @@ h2 {
   padding: 25px;
   border-radius: 14px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(20px);
 }
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
+
 .card h3 {
   color: #0c6372;
   margin-bottom: 12px;
@@ -105,32 +105,27 @@ h2 {
   color: #555;
 }
 
-/* ---------- PROJECT GRID ---------- */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+/* ---------- CARD HOVER ---------- */
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  background-color: #f9f9f9;
 }
 
-/* ---------- EXPERIENCE GRID ---------- */
-.experience-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-  margin-top: 20px;
-}
-.experience-grid .card {
-  flex: 1 1 300px;
-  max-width: 320px;
+/* ---------- PROJECT & EXPERIENCE GRID ---------- */
+.projects-grid, .experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  grid-auto-rows: 1fr;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
   text-align: center;
   padding: 22px 20px;
-  background-color: #0c6372;
-  color: #fff;
+  background-color: #f9f9f9;
+  color: #000000;
   font-size: 0.95rem;
   margin-top: 60px;
 }
@@ -141,103 +136,75 @@ footer a {
 footer a:hover {
   color: #e0e0e0;
 }
-/* Back to Top Button */
+
+/* ---------- BACK TO TOP BUTTON ---------- */
 #backToTop {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #0c6372;
-  color: white;
+  bottom: 20px;
+  right: 20px;
+  font-size: 32px;
+  color: #0c6372;
+  background: none;
   border: none;
-  border-radius: 50%;
-  padding: 10px 16px;
-  font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  display: none; /* hidden by default */
-  z-index: 999;
-  transition: background 0.3s, transform 0.3s;
+  display: none;
+  z-index: 1000;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
-
 #backToTop:hover {
-  background-color: #148194;
-  transform: scale(1.1);
+  transform: scale(1.2);
+  color: #176b7a;
 }
-
 
 /* ---------- RESPONSIVE BREAKPOINTS ---------- */
 @media (max-width: 992px) {
-  header h1 {
-    font-size: 2.4rem;
-  }
-  header p {
-    font-size: 1rem;
-  }
-  nav {
-    gap: 15px;
-  }
-  .card {
-    padding: 20px;
-  }
-  h2 {
-    font-size: 1.6rem;
-  }
-  .card h3 {
-    font-size: 1.2rem;
-  }
-  .card p, .card li {
-    font-size: 0.9rem;
-  }
+  header h1 { font-size: 2.4rem; }
+  header p { font-size: 1rem; }
+  nav { gap: 15px; }
+  .card { padding: 20px; }
+  h2 { font-size: 1.6rem; }
+  .card h3 { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.9rem; }
 }
 
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
-  header p {
-    font-size: 0.9rem;
-  }
-  section {
-    margin: 40px auto;
-  }
-  h2 {
-    font-size: 1.4rem;
-  }
-  nav {
-    display: none; /* hide menu on mobile */
-  }
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  .experience-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  .experience-grid .card {
-    max-width: 100%;
-  }
-  .card h3 {
-    font-size: 1.1rem;
-  }
-  .card p, .card li {
-    font-size: 0.85rem;
-  }
+  header h1 { font-size: 2rem; }
+  header p { font-size: 0.9rem; }
+  section { margin: 40px auto; }
+  h2 { font-size: 1.4rem; }
+  nav { display: none; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .experience-grid { flex-direction: column; align-items: center; }
+  .experience-grid .card { max-width: 100%; }
+  .card h3 { font-size: 1.1rem; }
+  .card p, .card li { font-size: 0.85rem; }
 }
 
 @media (max-width: 576px) {
-  header h1 {
-    font-size: 1.8rem;
-  }
-  header p {
-    font-size: 0.8rem;
-  }
-  h2 {
-    font-size: 1.2rem;
-  }
-  .card h3 {
-    font-size: 1rem;
-  }
-  .card p, .card li {
-    font-size: 0.8rem;
-  }
+  header h1 { font-size: 1.8rem; }
+  header p { font-size: 0.8rem; }
+  h2 { font-size: 1.2rem; }
+  .card h3 { font-size: 1rem; }
+  .card p, .card li { font-size: 0.8rem; }
+}
+
+/* ---------- NAV LINKS TRANSITION ---------- */
+nav a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  transform: translateY(-2px);
+  color: #088494;
+}
+
+/* ---------- SMOOTH SCROLL FOR INTERNAL LINKS ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- CARD FADE-IN ON SCROLL ---------- */
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
