@@ -1,0 +1,243 @@
+/* =========================
+   style.css
+========================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f2f5;
+  color: #1c1c1c;
+  line-height: 1.7;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  background: linear-gradient(135deg, #0c6372, #0a4e59);
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+}
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+header p {
+  font-size: 1.2rem;
+  margin-top: 12px;
+  opacity: 0.9;
+}
+
+/* ---------- NAVIGATION ---------- */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  background-color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+}
+nav a {
+  color: #0c6372;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+nav a:hover {
+  color: #088494;
+  transform: translateY(-2px);
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+h2 {
+  color: #0c6372;
+  border-bottom: 3px solid #0c6372;
+  display: inline-block;
+  padding-bottom: 6px;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+/* ---------- CARDS ---------- */
+.card {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.card h3 {
+  color: #0c6372;
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+.card p {
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 1rem;
+}
+.card ul {
+  list-style: disc;
+  padding-left: 18px;
+  margin-top: 10px;
+}
+.card li {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* ---------- PROJECT GRID ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* ---------- EXPERIENCE GRID ---------- */
+.experience-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.experience-grid .card {
+  flex: 1 1 300px;
+  max-width: 320px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 22px 20px;
+  background-color: #0c6372;
+  color: #fff;
+  font-size: 0.95rem;
+  margin-top: 60px;
+}
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+footer a:hover {
+  color: #e0e0e0;
+}
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #0c6372;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 16px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: none; /* hidden by default */
+  z-index: 999;
+  transition: background 0.3s, transform 0.3s;
+}
+
+#backToTop:hover {
+  background-color: #148194;
+  transform: scale(1.1);
+}
+
+
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 2.4rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  nav {
+    gap: 15px;
+  }
+  .card {
+    padding: 20px;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  .card h3 {
+    font-size: 1.2rem;
+  }
+  .card p, .card li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 0.9rem;
+  }
+  section {
+    margin: 40px auto;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  nav {
+    display: none; /* hide menu on mobile */
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .experience-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .experience-grid .card {
+    max-width: 100%;
+  }
+  .card h3 {
+    font-size: 1.1rem;
+  }
+  .card p, .card li {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  header p {
+    font-size: 0.8rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .card h3 {
+    font-size: 1rem;
+  }
+  .card p, .card li {
+    font-size: 0.8rem;
+  }
+}
